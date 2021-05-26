@@ -10,7 +10,12 @@ namespace PostsharpTest
     {
         public void MethodInDerivedClass()
         {
-            Console.WriteLine("Hello World!");
+            PrivateMethodCalledFromDerivedClass();
+        }
+
+        private void PrivateMethodCalledFromDerivedClass()
+        {
+            Console.WriteLine("I was called");
         }
     }
 }

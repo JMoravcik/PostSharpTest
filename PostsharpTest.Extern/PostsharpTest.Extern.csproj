@@ -1,8 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PostsharpTest.Aspects\PostsharpTest.Aspects.csproj" />
-    <ProjectReference Include="..\PostsharpTest.Extern\PostsharpTest.Extern.csproj" />
   </ItemGroup>
 
 </Project>

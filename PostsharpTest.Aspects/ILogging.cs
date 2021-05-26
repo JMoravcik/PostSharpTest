@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PostsharpTest
+namespace PostsharpTest.Aspects
 {
     /// <summary>
     /// Every class where is implemented this interface and simultaneously every class what is derived from base class 

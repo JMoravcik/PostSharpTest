@@ -1,6 +1,10 @@
-﻿using PostsharpTest;
+﻿
+using PostsharpTest;
+using PostsharpTest.Extern;
+using PostsharpTest.Extern.NextAsm;
 using System;
 
+//[assembly: PostsharpTest.Aspects.Writer]
 namespace PostSharpTest
 {
     class Program
@@ -9,7 +13,8 @@ namespace PostSharpTest
         {
             //MethodImplementationExamples();
             //ClassImplementationExamples();
-            DerivedClassImplementationExamples();
+            //DerivedClassImplementationExamples();
+            AssemblyImplementationExamples();
         }
 
         static void MethodImplementationExamples()
@@ -46,6 +51,26 @@ namespace PostSharpTest
             }
 
             derivedClassApplications.MethodInDerivedClass();
+        }
+
+        static void AssemblyImplementationExamples()
+        {
+            Class1 classApplications = new Class1();
+            classApplications.BasicMethodWithArgumentAndReturn(1);
+            classApplications.BasicNotImplementedMethod();
+            foreach (var index in classApplications.EnumerableMethod(3))
+            {
+                Console.WriteLine($"index: {index}");
+            }
+
+            Class2 classApplications2 = new Class2();
+            classApplications2.BasicMethodWithArgumentAndReturn(1);
+            classApplications2.BasicNotImplementedMethod();
+            foreach (var index in classApplications2.EnumerableMethod(3))
+            {
+                Console.WriteLine($"index: {index}");
+            }
+
         }
     }
 }

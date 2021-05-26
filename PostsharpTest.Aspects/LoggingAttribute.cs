@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PostsharpTest
+namespace PostsharpTest.Aspects
 {
 
     [PSerializable]
@@ -44,11 +44,6 @@ namespace PostsharpTest
             var methodInfo = args.Method as MethodInfo;
             Logger.LogInfo(methodInfo, "Yield");
             Logger.LogInfo(null, $"yields({methodInfo.ReturnType.GenericTypeArguments[0].Name}): {args.YieldValue}");
-        }
-
-        public override void OnResume(MethodExecutionArgs args)
-        {
-            Logger.LogInfo(args.Method as MethodInfo, "Resume");
         }
     }
 }

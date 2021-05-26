@@ -1,13 +1,12 @@
-﻿using PostsharpTest.Aspects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PostsharpTest
+namespace PostsharpTest.Extern.NextAsm
 {
-    public class ClassApplications : ILogging
+    public class Class2
     {
         public string BasicNotImplementedMethod()
         {

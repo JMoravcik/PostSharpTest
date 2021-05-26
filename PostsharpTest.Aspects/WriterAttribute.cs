@@ -7,17 +7,21 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PostsharpTest
+namespace PostsharpTest.Aspects
 {
 
 
     [PSerializable, AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = true)]
-    class WriterAttribute : TypeLevelAspect, IAspectProvider
+    public class WriterAttribute : TypeLevelAspect, IAspectProvider
     {
         public IEnumerable<AspectInstance> ProvideAspects(object targetElement)
         {
             var type = targetElement as Type;
-            return from method in type.GetMethods()
+
+            if (type == this.GetType() && type == typeof(LoggingAttribute) && type == typeof(Logger))
+                return null;
+
+            return from method in type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                    where method.DeclaringType == type && !AlreadyContainsAspect(method) && IsFromILogging(method)
                    select new AspectInstance(method, new LoggingAttribute());
         }
